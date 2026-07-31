@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bc79f3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav{
+  text-align: right;
+  padding: 30px 50px 0 0;
+}
+nav > a{
+  color: #000000;
+  font-weight: 300;
+  text-decoration: none;
+  margin-right: 10px;
+}
+nav > a:hover{
+  color:rgb(167, 9, 240);
+  text-decoration: underline;
+}
+
+.tarjeta {
+    width: 380px;                      
+    padding: 30px;                     
+    background-color: #fbfafc;         
+    border-radius: 16px;               
+    box-shadow: 0 4px 15px rgba(255, 208, 0, 0.438); 
+    text-align: center;                 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.tarjeta h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 24px;
+    color: #1f2937;
+}
+
+.tarjeta .carrera {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.tarjeta .habilidades {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.tarjeta .habilidades li {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+}
+.tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 500px) {
+    .tarjeta {
+        width: 90%;
+        padding: 20px;
+    }
+}
