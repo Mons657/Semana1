@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflexión y Respuestas sobre CSS</title>
+    <title>Reflexión y Respuestas sobre CSS y JavaScript</title>
     <style>
 
         * {
@@ -82,6 +82,7 @@
         .section-title {
             font-size: 1.5rem;
             color: #4c1d95;
+            margin-top: 35px;
             margin-bottom: 20px;
             text-align: center;
         }
@@ -109,6 +110,11 @@
         .qa-card p:last-child {
             margin-bottom: 0;
         }
+        .qa-card ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
         .qa-card strong {
             color: #1f2937;
         }
@@ -121,6 +127,7 @@
             font-family: 'Consolas', 'Courier New', monospace;
             font-size: 0.9rem;
             margin-top: 10px;
+            margin-bottom: 10px;
         }
         @media (max-width: 600px) {
             body {
@@ -139,11 +146,9 @@
 
     <div class="container">
         
-
         <a href="Tarjeta.html" class="btn-regresar">
             &#8592; Regresar a Tarjeta
         </a>
-
 
         <div class="intro-card">
             <p>
@@ -158,6 +163,7 @@
             </p>
         </div>
 
+        <!-- SECCIÓN 1: ANIMACIONES CSS -->
         <h2 class="section-title">Análisis de Animaciones CSS</h2>
 
         <!-- Pregunta 1 -->
@@ -199,6 +205,59 @@
 }</code></pre>
         </div>
 
+        <!-- SECCIÓN 2: INTERACTIVIDAD Y JAVASCRIPT -->
+        <h2 class="section-title">Análisis de Funciones y Eventos en JavaScript</h2>
+
+        <!-- Pregunta JS 1 -->
+        <div class="qa-card">
+            <h3>1. ¿Qué hace el método classList.toggle("oscuro")? ¿Qué ocurre si la clase ya está puesta?</h3>
+            <p><strong>Lo que hace:</strong> <code>classList.toggle()</code> actúa literalmente como un interruptor de luz. Revisa el elemento del DOM y:</p>
+            <ul>
+                <li>Si la clase <code>"oscuro"</code> no existe, la <strong>agrega</strong>.</li>
+                <li>Si la clase <code>"oscuro"</code> ya existe, la <strong>remueve</strong>.</li>
+            </ul>
+            <p><strong>Si la clase ya está puesta:</strong> Al ejecutar la función, el método detectará que la clase existe y la removerá inmediatamente, devolviendo al elemento su aspecto o estado original sin la clase.</p>
+        </div>
+
+        <!-- Pregunta JS 2 -->
+        <div class="qa-card">
+            <h3>2. ¿Por qué la función alternarTema se pasa sin paréntesis en el addEventListener?</h3>
+            <p><strong>Pasarla sin paréntesis (<code>alternarTema</code>):</strong> Le estás pasando a JavaScript la referencia de la función, es decir, le estás diciendo: <em>"Guarda las instrucciones de esta función y ejecútalas únicamente cuando el usuario haga clic en el botón"</em>.</p>
+            <p><strong>Si la pasaras con paréntesis (<code>alternarTema()</code>):</strong> Estarías ejecutando la función inmediatamente en el momento exacto en que la página carga, sin esperar a que el usuario haga clic. Además, el evento <code>click</code> recibiría el resultado de la función (que es <code>undefined</code>), dejando el botón sin funcionamiento.</p>
+        </div>
+
+        <!-- Pregunta JS 3 -->
+        <div class="qa-card">
+            <h3>3. ¿Qué papel cumple la propiedad transition del CSS en esta interacción?</h3>
+            <p>Su función es <strong>suavizar el cambio visual</strong>.</p>
+            <p>Cuando agregas o quitas la clase <code>.oscuro</code>, el navegador cambia de golpe los colores del fondo (<code>background-color</code>) y del texto (<code>color</code>). Al incluir en el CSS:</p>
+<pre><code>transition: background-color 0.3s ease, color 0.3s ease;</code></pre>
+            <p>Le indicas al navegador que no cambie los colores de forma brusca en 0 segundos, sino que haga una degradación/animación fluida que dure 0.3 segundos. Esto le da a la interfaz una sensación mucho más profesional y cómoda a la vista.</p>
+        </div>
+
+        <!-- Pregunta JS 4 -->
+        <div class="qa-card">
+            <h3>4. ¿Cómo agregarías un segundo botón que solo active el modo oscuro, sin alternar?</h3>
+            <p>Para forzar a que un botón solo active el modo oscuro (sin apagarlo si se vuelve a presionar), en lugar de usar <code>toggle()</code> utilizamos el método <code>classList.add()</code>.</p>
+            
+            <p><strong>En el HTML:</strong></p>
+<pre><code>&lt;button id="solo-oscuro"&gt;Activar Modo Oscuro&lt;/button&gt;</code></pre>
+
+            <p style="margin-top: 15px;"><strong>En el JavaScript:</strong></p>
+<pre><code>// 1. Seleccionamos el nuevo botón
+const botonActivar = document.getElementById("solo-oscuro");
+
+// 2. Creamos la función usando .add() en lugar de .toggle()
+function activarModoOscuro() {
+    document.body.classList.add("oscuro");
+}
+
+// 3. Escuchamos el evento click
+botonActivar.addEventListener("click", activarModoOscuro);</code></pre>
+            
+        </div>
+
+        <!-- Botón Inferior -->
         <div class="btn-contenedor-inferior">
             <a href="Tarjeta.html" class="btn-regresar">
                 &#8592; Regresar a Tarjeta
