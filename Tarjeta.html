@@ -5,32 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarjeta Personal</title>
     <link rel="stylesheet" href="C1.css">
+    <!-- Carga de la librería jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-
-
     <header class="navbar">
         <div class="nav-container">
             <span class="logo">Portafolio</span>
             <nav>
-                <a href="Preg.html" class="nav-link">
-                    <span>Preguntas</span>
-                    <span class="icon">&#8594;</span>
-                </a>
-                <a href="Sem2.html" class="nav-link">
-                    <span>Texto</span>
-                    <span class="icon">&#8594;</span>
-                </a>
+                <a href="Preg.html" class="nav-link">Preguntas</a>
+                <a href="Sem2.html" class="nav-link">Contador</a>
             </nav>
         </div>
     </header>
-
 
     <main class="contenedor-principal">
         <div class="tarjeta">
             <h1>Marin Jimenez Sharon Monserrath</h1>
             <p class="carrera">Tecnólogo en Desarrollo de software y Licenciatura en Diseño gráfico</p>
-            <ul class="habilidades">
+
+            <!-- Botón desplegable para jQuery -->
+            <button id="btn-detalles" class="btn-interactivo">Ver más información</button>
+
+            <!-- Contenido oculto que se desplegará -->
+            <div id="info-extra" style="display: none; margin-top: 15px;">
+                <p><strong>Contacto:</strong> 23020010@universidad-une.com</p>
+                <p><strong>Ubicación:</strong> Guadalajara, Jalisco</p>
+            </div>
+
+            <ul class="habilidades" style="margin-top: 20px;">
                 <li>Diseño Web Responsive</li>
                 <li>Desarrollo Frontend</li>
                 <li>Experiencia de Usuario (UX)</li>
@@ -38,5 +41,7 @@
         </div>
     </main>
 
+    <!-- Vinculación del script externo -->
+    <script src="script.js"></script>
 </body>
 </html>
